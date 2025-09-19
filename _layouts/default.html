@@ -3,12 +3,91 @@
 <title>{{ page.title }} · {{ site.title }}</title>
 {% seo %}
 <style>
-  body{font:16px/1.6 system-ui,-apple-system,Segoe UI,Inter,sans-serif;margin:0;color:#111}
-  header,main,footer{max-width:900px;margin:0 auto;padding:24px}
-  nav a{margin-right:16px;color:#333;text-decoration:none}
-  nav a:hover{text-decoration:underline}
-  footer{color:#666;font-size:14px;border-top:1px solid #eee;margin-top:48px}
-  .muted{color:#777}
+  :root {
+    color-scheme: light;
+    --bg:#f6f3ee;
+    --ink:#101010;
+    --muted:#5a5a5a;
+    --accent:#2f4cff;
+    --accent-soft:rgba(47,76,255,0.08);
+    --card:#fffdf8;
+    --border:rgba(16,16,16,0.08);
+    --shadow:0 30px 60px -25px rgba(16,16,16,0.35);
+  }
+  *{box-sizing:border-box}
+  body{
+    font:17px/1.65 "Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+    margin:0;
+    color:var(--ink);
+    background:radial-gradient(circle at top left,rgba(47,76,255,0.14),transparent 45%),
+      radial-gradient(circle at bottom right,rgba(255,137,102,0.16),transparent 40%),var(--bg);
+  }
+  a{color:inherit;text-decoration:none}
+  a:hover{text-decoration:none}
+  header,main,footer{max-width:1100px;margin:0 auto;padding:32px 24px}
+  header{display:flex;align-items:center;justify-content:space-between;gap:24px}
+  header h1{margin:0;font-size:20px;letter-spacing:0.02em;text-transform:uppercase}
+  nav{display:flex;gap:18px;font-size:14px;letter-spacing:0.08em;text-transform:uppercase}
+  nav a{position:relative;padding-bottom:4px;color:rgba(16,16,16,0.7)}
+  nav a::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+  nav a:hover::after{transform:scaleX(1)}
+  main{padding-top:16px;padding-bottom:96px}
+  footer{color:var(--muted);font-size:14px;border-top:1px solid var(--border);margin-top:96px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+  footer a{color:var(--muted)}
+  .muted{color:var(--muted)}
+
+  .hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,320px);gap:48px;align-items:center;padding:48px;border-radius:40px;background:linear-gradient(135deg,rgba(255,255,255,0.9),rgba(255,255,255,0.65));border:1px solid rgba(255,255,255,0.6);box-shadow:var(--shadow);backdrop-filter:blur(18px)}
+  .hero__label{display:inline-block;font-size:13px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+  .hero h1{margin:0 0 18px;font-size:40px;line-height:1.15;font-weight:600}
+  .hero__text{margin:0 0 28px;font-size:18px;color:rgba(16,16,16,0.82)}
+  .hero__links{display:flex;flex-wrap:wrap;gap:14px}
+  .hero__portrait{text-align:center}
+  .portrait-placeholder{display:flex;align-items:center;justify-content:center;width:100%;aspect-ratio:3/4;border-radius:28px;background:repeating-linear-gradient(135deg,rgba(47,76,255,0.18),rgba(47,76,255,0.18) 18px,rgba(255,255,255,0.48) 18px,rgba(255,255,255,0.48) 36px);color:rgba(16,16,16,0.7);font-weight:600;letter-spacing:0.12em;text-transform:uppercase}
+  .portrait-note{display:block;margin-top:12px;font-size:13px;color:var(--muted)}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 24px;border-radius:999px;background:var(--ink);color:#fff;font-size:15px;font-weight:600;letter-spacing:0.04em;transition:transform .2s ease,box-shadow .2s ease;background-image:linear-gradient(135deg,var(--ink),#1b1b1b)}
+  .btn:hover{transform:translateY(-1px);box-shadow:0 18px 30px -20px rgba(16,16,16,0.8)}
+  .btn--ghost{background:transparent;color:var(--ink);border:1px solid rgba(16,16,16,0.2);box-shadow:none}
+  .btn--ghost:hover{background:rgba(16,16,16,0.04)}
+
+  .story{margin-top:96px;display:grid;gap:32px}
+  .story__intro{padding:32px;border-radius:28px;background:var(--card);border:1px solid var(--border);box-shadow:0 20px 40px -35px rgba(16,16,16,0.6)}
+  .story__intro p{margin:0 0 18px;font-size:17px;color:rgba(16,16,16,0.78)}
+  .story__nav{display:flex;flex-wrap:wrap;gap:12px}
+  .chip{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:20px;background:var(--accent-soft);color:var(--accent);font-size:13px;letter-spacing:0.1em;text-transform:uppercase;border:1px solid rgba(47,76,255,0.18)}
+
+  .story-block{position:relative;padding:36px;border-radius:32px;background:linear-gradient(155deg,rgba(255,255,255,0.94),rgba(255,255,255,0.7));border:1px solid rgba(255,255,255,0.7);box-shadow:0 24px 45px -30px rgba(16,16,16,0.55);overflow:hidden}
+  .story-block::before{content:"";position:absolute;inset:-80px auto auto -80px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(47,76,255,0.18),transparent 60%);opacity:0.7;pointer-events:none}
+  .story-block:nth-of-type(2)::before{left:auto;right:-60px}
+  .story-block:nth-of-type(3)::before{top:auto;bottom:-80px}
+  .story-block header{font-size:13px;letter-spacing:0.22em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+  .story-block p{margin:0;font-size:18px;max-width:62ch}
+
+  .cta{margin-top:96px}
+  .cta__card{padding:48px;border-radius:36px;background:linear-gradient(120deg,rgba(47,76,255,0.14),rgba(255,255,255,0.85));border:1px solid rgba(47,76,255,0.25);box-shadow:0 28px 60px -35px rgba(47,76,255,0.45);text-align:center}
+  .cta__card h2{margin:0 0 16px;font-size:32px;letter-spacing:0.08em;text-transform:uppercase}
+  .cta__card p{margin:0 0 28px;font-size:17px;color:rgba(16,16,16,0.82)}
+
+  .link-underline{position:relative;display:inline-block}
+  .link-underline::after{content:"";position:absolute;left:0;bottom:-3px;width:100%;height:1px;background:currentColor;opacity:0.4;transition:opacity .2s ease,transform .2s ease;transform-origin:left;transform:scaleX(0.2)}
+  .link-underline:hover::after{opacity:0.9;transform:scaleX(1)}
+
+  @media (max-width:880px){
+    header,main,footer{padding:24px 18px}
+    .hero{grid-template-columns:1fr;padding:38px}
+    .hero__portrait{order:-1}
+    .hero h1{font-size:32px}
+    .hero__text{font-size:17px}
+  }
+  @media (max-width:600px){
+    header{flex-direction:column;align-items:flex-start}
+    header nav{gap:12px;font-size:12px}
+    .hero{padding:30px;border-radius:28px}
+    .portrait-placeholder{border-radius:22px}
+    .story{margin-top:72px}
+    .story-block{padding:28px;border-radius:24px}
+    .cta__card{padding:36px;border-radius:28px}
+  }
 </style>
 </head><body>
 <header>
