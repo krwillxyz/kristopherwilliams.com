@@ -1,17 +1,17 @@
 ---
 layout: default
-title: whois
+title: about
 ---
 
 <section class="hero">
   <div class="hero__content">
     <span class="hero__label">Kristopher Williams</span>
     <h1>Artist, technologist, and founder of <a href="https://driftingforms.com" target="_blank" rel="noopener" class="link-underline">Drifting Forms Studio</a>.</h1>
-    <p class="hero__text">I build resilient creative systems—blending traditional craft, thoughtful technology, and the discipline required to sustain a long-term practice.</p>
+    <p class="hero__text">I shape disciplined creative systems—where traditional craft meets deliberate use of emerging tools.</p>
+    <p class="hero__text">This site houses the formal front of my practice. For experiments and in-progress work, head to <a href="https://krwill.xyz" target="_blank" rel="noopener" class="link-underline">krwill.xyz</a>.</p>
     <div class="hero__links">
-      <a class="btn" href="/resume">View résumé</a>
-      <a class="btn btn--ghost" href="/art">See selected work</a>
-      <a class="btn btn--ghost" href="https://krwill.xyz" target="_blank" rel="noopener">Visit krwill.xyz</a>
+      <a class="btn" href="/art">See selected work</a>
+      <a class="btn btn--ghost" href="/contact">Let’s work together</a>
     </div>
   </div>
   <div class="hero__portrait">
@@ -22,7 +22,7 @@ title: whois
 
 <section class="story">
   <div class="story__intro">
-    <p>Everything converges here: the engineering mindset, the studio practice, and the future-facing way I build. Scroll through the story or jump straight to a chapter below.</p>
+    <p>The studio practice is one body of work, told through three ongoing chapters. Choose a chapter or read straight through.</p>
     <div class="story__nav">
       <a href="#past" class="chip">Past</a>
       <a href="#present" class="chip">Present</a>
@@ -32,24 +32,27 @@ title: whois
 
   <article class="story-block" id="past">
     <header>Past</header>
-    <p>My career has always been about problem-solving and creativity. From software engineering to independent projects, I’ve built a foundation of resilience and adaptability. When change came, I didn’t stand still—I founded Drifting Forms Studio within weeks, turning uncertainty into momentum.</p>
+    <p>My path hasn’t been linear — it’s been built from exploring, testing, and reshaping ideas. From software to studio work, each step sharpened how I see systems, patterns, and creativity.</p>
+    <p>Drifting Forms Studio grew from that mix: a way to carry curiosity into tangible form.</p>
   </article>
 
   <article class="story-block" id="present">
     <header>Present</header>
-    <p>I work from a dedicated studio in Mukilteo, WA, where my practice blends ink, paint, mixed media, and the occasional machine-drawn piece. The studio is as much a laboratory as it is a workspace, where finished pieces and field studies emerge side by side. Parenting my young son is central to my life, and I balance that role with the discipline of building and sustaining a creative practice.</p>
+    <p>Today, I’m an artist working out of a hidden studio in Mukilteo, WA. Ink, paint, mixed media, and machine-drawn patterns all find their place here.</p>
+    <p>I balance raising my son with building a body of work — originals, prints, and field studies — each piece part of a larger practice of making creativity sustainable.</p>
   </article>
 
   <article class="story-block" id="future">
     <header>Future</header>
-    <p>I see my work as a bridge between traditional craft and modern tools. Technology and AI are not replacements, but instruments—folded carefully into my process to expand possibility while keeping the work distinctly human. Whether Drifting Forms grows as a studio or opens pathways into new creative roles, the future I’m building toward is one where resilience, experimentation, and thoughtful use of technology drive meaningful work.</p>
+    <p>The future is still unfolding. I want my studio to thrive, but I also see art as a bridge: between intuition and technology, between personal craft and shared experience.</p>
+    <p>Whether through this shop, collaborations, or creative roles, I’m exploring how to make the next chapter as intentional as the work itself.</p>
   </article>
 </section>
 
 <section class="cta">
   <div class="cta__card">
-    <h2>Go deeper</h2>
-    <p>Follow the studio journey at <a href="https://driftingforms.com" target="_blank" rel="noopener" class="link-underline">driftingforms.com</a>, explore the extended link hub at <a href="https://krwill.xyz" target="_blank" rel="noopener" class="link-underline">krwill.xyz</a>, or reach out directly to collaborate.</p>
-    <a class="btn" href="mailto:hello@driftingforms.com">Start a conversation</a>
+    <h2>Open to collaborations and commissions</h2>
+    <p>Explore new releases at <a href="https://driftingforms.com" target="_blank" rel="noopener" class="link-underline">driftingforms.com</a>, visit the experimental alley at <a href="https://krwill.xyz" target="_blank" rel="noopener" class="link-underline">krwill.xyz</a>, or reach out to plan the next project.</p>
+    <a class="btn" href="mailto:hello@kristopherwilliams.com">Let’s work together</a>
   </div>
 </section>

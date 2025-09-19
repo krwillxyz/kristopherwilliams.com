@@ -32,7 +32,7 @@
   nav a::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
   nav a:hover::after{transform:scaleX(1)}
   main{padding-top:16px;padding-bottom:96px}
-  footer{color:var(--muted);font-size:14px;border-top:1px solid var(--border);margin-top:96px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+  footer{color:var(--muted);font-size:14px;border-top:1px solid var(--border);margin-top:96px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px}
   footer a{color:var(--muted)}
   .muted{color:var(--muted)}
 
@@ -60,7 +60,8 @@
   .story-block::before{content:"";position:absolute;inset:-80px auto auto -80px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(47,76,255,0.18),transparent 60%);opacity:0.7;pointer-events:none}
   .story-block:nth-of-type(2)::before{left:auto;right:-60px}
   .story-block:nth-of-type(3)::before{top:auto;bottom:-80px}
-  .story-block header{font-size:13px;letter-spacing:0.22em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+  .story-block header{font-size:13px;letter-spacing:0.22em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;display:inline-flex;align-items:center;gap:10px}
+  .story-block header::before{content:"";display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(47,76,255,0.08)}
   .story-block p{margin:0;font-size:18px;max-width:62ch}
 
   .cta{margin-top:96px}
@@ -68,9 +69,26 @@
   .cta__card h2{margin:0 0 16px;font-size:32px;letter-spacing:0.08em;text-transform:uppercase}
   .cta__card p{margin:0 0 28px;font-size:17px;color:rgba(16,16,16,0.82)}
 
+  .gallery-intro{margin:0 auto 48px;max-width:700px;text-align:center}
+  .gallery-intro h1{margin:0 0 12px;font-size:36px;letter-spacing:0.04em;text-transform:uppercase}
+  .gallery-intro p{margin:0;font-size:17px;color:rgba(16,16,16,0.75)}
+  .gallery-grid{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-bottom:48px}
+  .gallery-card{padding:24px;border-radius:24px;background:linear-gradient(150deg,rgba(255,255,255,0.92),rgba(255,255,255,0.7));border:1px solid rgba(16,16,16,0.06);box-shadow:0 20px 40px -34px rgba(16,16,16,0.45)}
+  .gallery-card header{margin:0 0 8px;font-size:18px;font-weight:600;letter-spacing:0.02em;text-transform:uppercase}
+  .gallery-card p{margin:0;font-size:15px;color:rgba(16,16,16,0.72)}
+  .gallery-cta{margin:0 auto;max-width:540px;text-align:center;display:grid;gap:18px}
+  .gallery-cta p{margin:0;font-size:16px;color:rgba(16,16,16,0.72)}
+
   .link-underline{position:relative;display:inline-block}
   .link-underline::after{content:"";position:absolute;left:0;bottom:-3px;width:100%;height:1px;background:currentColor;opacity:0.4;transition:opacity .2s ease,transform .2s ease;transform-origin:left;transform:scaleX(0.2)}
   .link-underline:hover::after{opacity:0.9;transform:scaleX(1)}
+
+  .contact{margin:0 auto;max-width:760px;padding:48px;border-radius:36px;background:linear-gradient(140deg,rgba(255,255,255,0.95),rgba(255,255,255,0.7));border:1px solid rgba(16,16,16,0.08);box-shadow:0 20px 50px -30px rgba(16,16,16,0.5)}
+  .contact header h1{margin:0 0 12px;font-size:36px;letter-spacing:0.06em;text-transform:uppercase}
+  .contact header p{margin:0 0 24px;font-size:17px;color:rgba(16,16,16,0.75)}
+  .contact__actions{display:grid;gap:12px;margin-bottom:24px}
+  .contact__note{margin:0;font-size:15px;color:rgba(16,16,16,0.58)}
+  .contact__links{display:flex;flex-wrap:wrap;gap:16px;font-size:14px;text-transform:uppercase;letter-spacing:0.12em}
 
   @media (max-width:880px){
     header,main,footer{padding:24px 18px}
@@ -87,23 +105,28 @@
     .story{margin-top:72px}
     .story-block{padding:28px;border-radius:24px}
     .cta__card{padding:36px;border-radius:28px}
+    .contact{padding:36px;border-radius:28px}
+    .contact header h1{font-size:30px}
+    .gallery-intro h1{font-size:30px}
   }
 </style>
 </head><body>
 <header>
   <h1 style="margin:0">{{ site.title }}</h1>
   <nav>
-    <a href="/">whois</a>
-    <a href="/resume">résumé</a>
+    <a href="/">about</a>
     <a href="/art">art</a>
+    <a href="/contact">contact</a>
   </nav>
 </header>
 <main>{{ content }}</main>
 <footer>
   <span class="muted">© {{ "now" | date: "%Y" }} {{ site.title }}</span>
-  <span style="float:right">
-    <a class="muted" href="https://krwill.xyz/socials">Socials</a> ·
-    <a class="muted" href="https://driftingforms.com">Shop</a>
+  <span class="muted" style="display:flex;gap:16px;flex-wrap:wrap;align-items:center">
+    <a class="muted" href="/assets/kristopher-williams-resume.pdf">Résumé (PDF)</a>
+    <a class="muted" href="https://driftingforms.com">Drifting Forms</a>
+    <a class="muted" href="https://krwill.xyz">KRWill.xyz</a>
+    <a class="muted" href="https://krwill.xyz/socials">Socials</a>
   </span>
 </footer>
 </body></html>
